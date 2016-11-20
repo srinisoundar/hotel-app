@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="HandheldFriendly" content="True"/>
+    <meta name="MobileOptimized" content="320"/>
+    <title>Hotels and Reviews</title>
+</head>
+
+<body>
+<div id="hotel-app">
+    <div class="hotel-container" ng-controller="HotelCtrl as hotelCtrl" ng-cloak="true">
+        <div class="hotel-actions">
+            <button class="button button--default" type="button" ng-click="hotelCtrl.loadHotels()">Load hotels</button>
+        </div>
+        <div class="hotel-list" ng-repeat="hotel in hotelCtrl.hotels track by hotel.id" ng-if="hotelCtrl.hotels">
+            <div class="hotel-details">
+                <div class="hotel-item">
+                    <div class="hotel-item__thumbnail">
+                        <hotel-slider class="hotel-item-thumbnail__slider" images="hotel.images"></hotel-slider>
+                    </div>
+                    <div class="hotel-item__details">
+                        <div class="hotel-item-details__header">
+                            <div class="hotel-item-details__caption">
+                                <h3 class="hotel-item-details__name" ng-bind="hotel.name | capitalize"></h3>
+                                <div class="hotel-item-details__location">
+                                    <span ng-bind="hotel.country"></span>
+                                    <span>-</span>
+                                    <span ng-bind="hotel.city"></span>
+                                </div>
+                            </div>
+                            <div class="hotel-item-details__rating">
+                                <hotel-rating range="5" stars="hotel.stars"></hotel-rating>
+                            </div>
+                        </div>
+                        <div class="hotel-item-details__body">
+                            <p class="hotel-item-details__description" ng-bind="hotel.description"></p>
+                        </div>
+                        <div class="hotel-item-details__footer">
+                            <div class="hotel-item-details__review">
+                                <button class="button button--primary" type="button"
+                                        ng-click="hotelCtrl.toggleReview(hotel.id)"
+                                        ng-bind="hotelCtrl.hideReviews[hotel.id] ? 'Hide reviews' : 'Show reviews'">
+                                </button>
+                            </div>
+                            <div class="hotel-item-details__info">
+                                <h2 class="hotel-item-details__cost">
+                                    <span ng-bind="hotel.price"></span>
+                                    <span>€</span>
+                                </h2>
+                                <div class="hotel-item-details__duration">
+                                    <span ng-bind="hotel.date_start | date: hotelCtrl.dateFormat"></span>
+                                    <span>-</span>
+                                    <span ng-bind="hotel.date_end | date: hotelCtrl.dateFormat"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hotel-review"
+                     ng-if="hotelCtrl.hotelReviews[hotel.id].show || hotelCtrl.hotelReviews[hotel.id].isLoading">
+                    <hotel-message class="hotel-review__message"
+                                   is-loading="hotelCtrl.hotelReviews[hotel.id].isLoading"
+                                   is-error="hotelCtrl.hotelReviews[hotel.id].isError"
+                                   message="hotelCtrl.hotelReviews[hotel.id].message">
+                    </hotel-message>
+                    <hotel-review
+                        reviews="hotelCtrl.hotelReviews[hotel.id].reviews">
+
+                    </hotel-review>
+                </div>
+            </div>
+        </div>
+        <hotel-message is-loading="hotelCtrl.isLoading"
+                       is-error="hotelCtrl.isError"
+                       message="hotelCtrl.message">
+
+        </hotel-message>
+    </div>
+</div>
+</body>
+
+</html>

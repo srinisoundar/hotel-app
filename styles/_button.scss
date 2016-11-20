@@ -1,0 +1,44 @@
+$button-padding: 6px !default;
+$button-font-size: 14px !default;
+$button-line-height: 1.43 !default;
+$button-border-radius: 4px !default;
+
+$button-primary-color: #fff !default;
+$button-primary-bg-color: #337ab7 !default;
+$button-primary-border-color: #2e6da4 !default;
+
+$button-default-color: #333 !default;
+$button-default-bg-color: #fff !default;
+$button-default-border-color: #ccc !default;
+
+.button {
+    display: inline-block;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: $button-padding ($button-padding * 2);
+    font-size: $button-font-size;
+    line-height: $button-line-height;
+    border-radius: $button-border-radius;
+    user-select: none;
+    margin: 0;
+    appearance: button;
+    outline: none;
+
+    &--primary {
+        color: $button-primary-color;
+        background-color: $button-primary-bg-color;
+        border-color: $button-primary-border-color;
+    }
+
+    &--default {
+        color: $button-default-color;
+        background-color: $button-default-bg-color;
+        border-color: $button-default-border-color;
+    }
+}

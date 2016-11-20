@@ -1,0 +1,11 @@
+<div class="hotel-review-list">
+    <div class="hotel-review-item" ng-repeat="review in $ctrl.reviews track by $index">
+        <div class="hotel-review-item__result">
+            <span class="hotel-review-item__image" ng-bind="review.positive ? '+':'–'"></span>
+        </div>
+        <div class="hotel-review-item__info">
+            <h5 class="hotel-review-item__name" ng-bind="review.name"></h5>
+            <p class="hotel-review-item__comment" ng-bind="review.comment"></p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+<div class="hotel-message">
+    <div class="spinner" ng-if="$ctrl.isLoading"></div>
+    <div class="hotel-alert alert" ng-if="$ctrl.message && !$ctrl.isLoading"
+         ng-bind="$ctrl.message"
+         ng-class="{'alert--danger':$ctrl.isError, 'alert--default': !$ctrl.isError}"></div>
+</div>

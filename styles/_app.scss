@@ -1,0 +1,124 @@
+$hotel-container-margin: 30px !default;
+$hotel-container-max-width: 950px !default;
+
+$hotel-list-padding: 15px !default;
+
+$hotel-item-padding: 10px !default;
+$hotel-item-bg-color: #FCFCFC !default;
+$hotel-item-border-color: #DBDBDB !default;
+$hotel-item-border-radius: 6px !default;
+
+$hotel-item-detail-margin-top: 20px !default;
+
+$hotel-details-color: #555 !default;
+
+$hotel-rating-star-colors: #FFA500;
+
+$screen-md-width: 992px !default;
+$screen-sm-width: 725px !default;
+
+.hotel-container {
+    margin: $hotel-container-margin auto;
+    max-width: $hotel-container-max-width;
+}
+
+.hotel-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.hotel-list {
+    padding: $hotel-list-padding;
+}
+
+.hotel-details {
+    border: 1px solid $hotel-item-border-color;
+    padding: $hotel-item-padding;
+    border-radius: $hotel-item-border-radius;
+    background-color: $hotel-item-bg-color;
+}
+
+.hotel-item {
+    display: flex;
+    flex-direction: column;
+
+    &__thumbnail {
+        align-items: center;
+        display: flex;
+        width: 100%;
+    }
+
+    &__details {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: $hotel-item-detail-margin-top;
+    }
+}
+
+.hotel-item-details {
+    &__header, &__footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    &__name {
+        font-weight:500;
+    }
+
+    &__location, &__duration {
+        color: $hotel-details-color;
+    }
+
+    &__review {
+        align-self: center;
+    }
+
+    &__rating {
+        align-self: center;
+    }
+
+    &__cost {
+        text-align: right;
+        font-weight:500;
+    }
+}
+
+.hotel-stars {
+    color: $hotel-rating-star-colors;
+}
+
+/* media queries */
+@media (min-width: $screen-md-width) {
+    .hotel-item {
+        flex-direction: row;
+
+        &__thumbnail {
+            width: 33%;
+        }
+
+        &__details {
+            margin-top: 0;
+            padding-left: $hotel-item-padding;
+            width: 67%;
+        }
+    }
+}
+
+@media (min-width: $screen-sm-width) and (max-width: $screen-md-width) {
+    .hotel-item {
+        flex-direction: row;
+
+        &__thumbnail {
+            width: 40%;
+        }
+
+        &__details {
+            margin-top: 0;
+            padding-left: $hotel-item-padding;
+            width: 60%;
+        }
+    }
+}

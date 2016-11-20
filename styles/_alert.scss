@@ -1,0 +1,31 @@
+$alert-padding: 15px !default;
+$alert-margin: 20px !default;
+$alert-border-radius: 4px !default;
+
+$alert-danger-color: #a94442 !default;
+$alert-danger-bg: #f2dede !default;
+$alert-danger-border: #ebccd1 !default;
+
+$alert-default-color: #333 !default;
+$alert-default-bg: #fff !default;
+$alert-default-border: #ccc !default;
+
+.alert {
+    padding: $alert-padding;
+    margin: $alert-margin;
+    border: 1px solid transparent;
+    border-radius: $alert-border-radius;
+
+    &--danger {
+        color: $alert-danger-color;
+        background-color: $alert-danger-bg;
+        border-color: $alert-danger-border;
+    }
+
+    &--default {
+        color: $alert-default-color;
+        background-color: $alert-default-bg;
+        border-color: $alert-default-border;
+    }
+
+}

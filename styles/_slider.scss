@@ -1,0 +1,38 @@
+$slide-image-border-radius: 6px !default;
+
+$slide-arrows-color: #eee !default;
+$slide-arrows-padding: 5px !default;
+
+.hotel-slider {
+    position:relative;
+    width: 100%;
+    height: 100%;
+}
+
+.hotel-slide {
+    &__image {
+        width: 100%;
+        height: 100%;
+        border-radius: $slide-image-border-radius;
+    }
+
+    &__arrows {
+        top: 0;
+        left: 0;
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        z-index: 444;
+        height: 100%;
+        padding: $slide-arrows-padding;
+        color: $slide-arrows-color;
+        opacity: 0.7;
+    }
+
+    &__arrow {
+        touch-action: manipulation;
+        cursor: pointer;
+    }
+}

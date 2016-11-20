@@ -1,0 +1,9 @@
+<div class="hotel-slider"  ng-cloak="true">
+    <div class="hotel-slide" ng-repeat="slide in $ctrl.sliders" ng-show="slide.visible">
+        <img class="hotel-slide__image"ng-src="{{slide.image}}" ng-cloak="true" />
+    </div>
+   <div class="hotel-slide__arrows" ng-if="$ctrl.images.length > 1">
+        <a class="hotel-slide__arrow" ng-click="$ctrl.prevImage()">◀</a>
+        <a class="hotel-slide__arrow" ng-click="$ctrl.nextImage()">▶</a>
+    </div>
+</div>
